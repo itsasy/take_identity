@@ -6,10 +6,8 @@
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <div class="card">
-            <div class="card-header">
-                <div class="card-title">
-                    Acceso a la aplicación
-                </div>
+            <div class="card-header text-center">
+                <strong>Acceso a la aplicación</strong>
             </div>
             <div class="card-body">
                 <form action="{{route('auth.login')}}" method="POST">
@@ -18,7 +16,8 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input id="email" class="form-control @error('email') is-invalid @enderror" type="text"
-                            name="email" placeholder="Ingresa tu correo" value="{{old('email')}}" autocomplete="email" autofocus>
+                            name="email" placeholder="Ingresa tu correo" value="{{old('email')}}" autocomplete="email"
+                            autofocus>
                         @error('email')
                         <span class="invalid-feedback" role="alert">{{$message}}</span>
                         @enderror
@@ -33,7 +32,7 @@
                         @enderror
                     </div>
 
-                    <button class="btn btn-primary btn-block">Aceptar</button>
+                    <button type="submit" class="btn btn-primary btn-block">Aceptar</button>
                 </form>
             </div>
         </div>
