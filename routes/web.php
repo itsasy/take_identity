@@ -11,3 +11,4 @@ Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('admin/users', 'UsersController@index')->name('admin.users.index');
 
 Route::post('impersonations', 'ImpersonationController@store')->name('impersonations.store');
+Route::delete('impersonations', 'ImpersonationController@destroy')->name('impersonations.destroy');

@@ -17,5 +17,12 @@ class ImpersonationController extends Controller
         return back()->with('flash', 'Estás personificando al usuario con el id: ' . $user_id);
     }
 
-    
+    public function destroy()
+    {
+        auth()->loginUsingId(session('impersonator_id'));
+
+        session()->forget('impersonator_id');
+
+        return back()->with('flash', 'Has vuelto a ser tú ' . auth()->user()->name);
+    }
 }

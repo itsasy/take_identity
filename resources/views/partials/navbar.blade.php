@@ -25,15 +25,23 @@
                         {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('impersonations.destroy')}}" onclick="event.preventDefault();
+                        document.getElementById('impersonation_destroy').submit();">
+                            Dejar de personificar
+                        </a>
+                        <form id="impersonation_destroy" action="{{ route('impersonations.destroy') }}" method="POST"
+                            class="d-none">
+                            {{ csrf_field() }} {{ method_field('DELETE') }}
+                        </form>
+
+
                         <a class="dropdown-item" href="{{route('auth.logout')}}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                             Cerrar sesión
                         </a>
-
                         <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
-                            @csrf
+                            {{ csrf_field() }}
                         </form>
-
                     </div>
                 </li>
                 @endauth
