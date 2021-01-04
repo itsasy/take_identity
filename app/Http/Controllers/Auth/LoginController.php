@@ -20,7 +20,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return 'I can Login';
+            return redirect()->route('dashboard');
         }
 
         return back()
