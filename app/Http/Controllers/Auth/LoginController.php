@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -17,12 +18,9 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login()
+    public function login(LoginRequest $request)
     {
-        $credentials = request()->validate([
-            'email' => ['email', 'required', 'string'],
-            'password' => ['required', 'string']
-        ]);
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->route('dashboard');
