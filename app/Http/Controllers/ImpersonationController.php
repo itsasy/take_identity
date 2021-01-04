@@ -16,4 +16,6 @@ class ImpersonationController extends Controller
 
         return back()->with('flash', 'Estás personificando al usuario con el id: ' . $user_id);
     }
+
+    
 }
