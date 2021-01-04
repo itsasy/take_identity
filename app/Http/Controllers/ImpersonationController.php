@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class ImpersonationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store()
     {
         $user_id = request('user_id');
@@ -17,7 +22,7 @@ class ImpersonationController extends Controller
 
             return back()->with('flash', 'Estás personificando al usuario con el id: ' . $user_id);
         }
-        
+
         return back()->with('flash', 'Acción no permitida.');
     }
 
