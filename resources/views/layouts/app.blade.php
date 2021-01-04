@@ -14,6 +14,11 @@
 
     <div class="py-4">
         <div class="container">
+            @if(session()->has('flash'))
+            <div class="alert alert-info" role="alert">
+                {{session('flash')}}
+            </div>
+            @endif
             @yield('content')
         </div>
     </div>
