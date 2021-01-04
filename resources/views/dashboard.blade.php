@@ -12,6 +12,14 @@
             <div class="card-body">
                 <strong>Email:</strong> {{auth()->user()->email}}
             </div>
+            <div class="card-footer">
+                <form action="{{route('auth.logout')}}" method="POST">
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger btn-sm btn-block">
+                        Cerrar sessión
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
