@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        \Blade::if('canImpersonate', function ($user_id = null) {
+            return auth()->user()->canImpersonate($user_id);
+        });
     }
 
     /**
