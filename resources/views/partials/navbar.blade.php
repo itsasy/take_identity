@@ -28,11 +28,12 @@
                         {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if(auth()->user()->id !== 1)
                         <a class="dropdown-item buttons" href="{{route('impersonations.destroy')}}"
                             data-action="impersonation_destroy">
                             Dejar de personificar
                         </a>
-
+                        @endif
                         <a class="dropdown-item buttons" href="{{route('auth.logout')}}" data-action="logout-form">
                             Cerrar sesión
                         </a>
