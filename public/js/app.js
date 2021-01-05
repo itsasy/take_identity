@@ -37321,6 +37321,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/dropdownEventsForm.js":
+/*!********************************************!*\
+  !*** ./resources/js/dropdownEventsForm.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var buttons = document.querySelectorAll('.dropdown-item.buttons');
+buttons.forEach(function (button) {
+  button.addEventListener('click', function (event) {
+    var action = button.dataset.action;
+    event.preventDefault();
+    document.getElementById(action).submit();
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37333,13 +37351,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!**************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/js/dropdownEventsForm.js ./resources/sass/app.scss ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! c:\laragon\www\take_identity\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! c:\laragon\www\take_identity\resources\js\dropdownEventsForm.js */"./resources/js/dropdownEventsForm.js");
 module.exports = __webpack_require__(/*! c:\laragon\www\take_identity\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
